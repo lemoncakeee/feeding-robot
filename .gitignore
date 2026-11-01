@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Git worktrees
+.worktrees/
+
+# Secrets
+.env
+.env.*
+
+# Models and runtime output
+*.gguf
+models/
+logs/
+recordings/
+
+# macOS
+.DS_Store
+
+# Local agent instructions
+CLAUDE.md

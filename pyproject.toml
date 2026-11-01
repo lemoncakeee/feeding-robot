@@ -1,0 +1,39 @@
+[project]
+name = "feeding-robot"
+version = "0.1.0"
+description = "Voice-controlled feeding-assistance robot simulation with local speech and LLM planning"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "mediapipe==0.10.14",
+    "numpy>=1.26",
+    "opencv-contrib-python>=5.0.0.93",
+    "pillow>=13.0.0",
+    "pybullet>=3.2.6",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+    "rich>=13.7",
+    "silero-vad>=5.1",
+    "sounddevice>=0.4.7",
+    "torch>=2.3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"planner.py" = ["E501"]  # prompt examples must stay on one line
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["live: needs a running Ollama server"]
